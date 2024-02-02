@@ -1,0 +1,66 @@
+1.Registering user
+    urls:http://127.0.0.1:8000/api/register/
+    method:post
+    data:{username,email,password}
+    authentication:nill
+    
+===========================================
+movie add fuction is on admin 
+for users
+
+2.to set token
+
+    urls:http://127.0.0.1:8000/api/token/
+    method:post
+    data:{username,password}
+    authentication:nill
+
+====================================================
+we need to block create and update function for user's
+
+
+3.to list all movies
+
+    urls:http://127.0.0.1:8000/api/movies/
+    method:get
+    data:nill
+    authentication:token
+
+4.to retrive specific movie
+
+    urls:http://127.0.0.1:8000/api/movies/{id}/
+    method:get
+    data:nill
+    authentication:token
+
+========================
+ default creation occured
+5.profile updation,
+    
+    urls:http://127.0.0.1:8000/api/profile/{id}
+    method:put
+    data:{user,profile_pic,gender}
+    authentication:token
+
+=================
+6.review create
+         done in movieviewset bcz review is given to movie id
+    urls:http://127.0.0.1:8000/api/movies/{id}/add_review/
+    method:put                      def add_review() methord name
+    data:{user,movie}                id= movie id
+    authentication:token
+
+    duplicate review ozhivakaan movie id idkkm then user create aakya reviews l indoon nookkm
+    id=kwargs.get("pk)
+    usergiven_reviewsid=request.user. profile nta akatha reviews kittnm so reviews nta akatha profile nta related name kodkkm
+                                     .profile_name.all(.value_list("movies,falt=true))
+ 
+
+ =============================
+7.review update
+
+    urls:http://127.0.0.1:8000/api/review/{id}/
+    method:put
+    data:{comment,rating}
+    authentication:token
+
